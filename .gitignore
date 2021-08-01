@@ -1,0 +1,6 @@
+wavfiles/*
+recordings/*
+data/*
+.*
+!.gitignore
+__pycache__
