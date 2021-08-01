@@ -2,7 +2,7 @@
 This is my attempt at replicating from the [shazam paper](https://www.ee.columbia.edu/~dpwe/papers/Wang03-shazam.pdf).
 
 ### Setup
-Install the following packages
+Install the following packages<br>
 `pip install scipy numpy matplotlib joblib sounddevice simpleaudio pathlib`
 
 ### Running
