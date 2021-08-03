@@ -19,12 +19,17 @@ def binary_search(key, arr):
     return binary_search_helper(0, len(arr)-1, key, arr)
 
 def estimate_gaussian(tally, id):
-    values = list(tally.values())
-    values.remove(tally[id])
-    m = len(tally.keys()) - 1
-    mu = sum(values)/m
-    std2 = sum([(x-mu)**2 for x in values])/m + 1e-3
-    return 1/math.sqrt(2 * math.pi * std2) * math.exp(-(tally[id]-mu)/2/std2)
+    if not tally:
+        return 0
+    if len(tally) == 1:
+        return 1
+    else:
+        values = list(tally.values())
+        values.remove(tally[id])
+        m = len(tally.keys()) - 1
+        mu = sum(values)/m
+        std2 = sum([(x-mu)**2 for x in values])/m + 1e-3
+        return 1/math.sqrt(2 * math.pi * std2) * math.exp(-(tally[id]-mu)**2/2/std2)
 
 def match_song_from_db(recording, dbtable, threshold=0.9):
     tally = {}
